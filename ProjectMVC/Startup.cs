@@ -31,8 +31,8 @@ namespace ProjectMVC
             var conString = Configuration["Data:ProjectMVC:ConnectionString"];
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(conString));
-            
-            services.AddControllers();
+
+            services.AddControllersWithViews();
             services.AddTransient<IRepository<User>, UserRepository>();
             services.AddTransient<IRepository<Post>, PostRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
