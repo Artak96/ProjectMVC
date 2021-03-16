@@ -56,7 +56,8 @@ namespace ProjectMVC.Controllers
         public IActionResult Registration(RegistrationViewModel registrationViewModel)
         {
             AccountBL accountBL = new AccountBL((UserRepository)this._userRepository);
-            if (accountBL.Registration(registrationViewModel))
+            bool chechk = accountBL.Registration(registrationViewModel);
+            if (chechk)
             {
                 return RedirectToAction("Login", new LoginViewModel
                 {
